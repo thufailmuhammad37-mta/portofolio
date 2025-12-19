@@ -452,23 +452,25 @@
           >
             <div class="grid gap-4">
               <input
+                type="text"
                 name="name"
+                placeholder="Nama Anda"
                 required
-                class="bg-transparent border border-white/10 rounded px-4 py-3"
-                placeholder="Nama"
+                class="bg-transparent border border-white/10 rounded px-4 py-3 focus:ring-yellow-400"
               />
               <input
                 name="email"
-                required
                 type="email"
-                class="bg-transparent border border-white/10 rounded px-4 py-3"
-                placeholder="Email"
+                placeholder="Email Anda"
+                required
+                class="bg-transparent border border-white/10 rounded px-4 py-3 focus:ring-yellow-400"
               />
               <textarea
                 name="message"
+                rows="6"
+                placeholder="Tulis Pesan Anda..."
                 required
-                class="bg-transparent border border-white/10 rounded px-4 py-3 h-32"
-                placeholder="Pesan"
+                class="bg-transparent border border-white/10 rounded px-4 py-3 h-32focus:ring-yellow-400"
               ></textarea>
               <div class="flex justify-end">
                 <button
