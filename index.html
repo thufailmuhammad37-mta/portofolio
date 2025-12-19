@@ -19,8 +19,11 @@
         --muted: #9aa4b2;
       }
     </style>
-
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script> (function () {
+        emailjs.init("a4l-EnePjKB1ZRK7d");
+        })();
+      </script>
   </head>
 
   <body class="bg-[color:var(--bg)] text-white antialiased leading-relaxed">
@@ -592,9 +595,6 @@
       });
     </script>
     <script>
-       (function () {
-        emailjs.init("a4l-EnePjKB1ZRK7d");
-      })();
       function sendEmail(e) {
         e.preventDefault();
 
