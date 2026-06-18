@@ -1,616 +1,924 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id" class="scroll-smooth">
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Muhammad Thufail - portofolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
 
     <style>
-        :root {
-            --bg: #0b1020;
-            --card: #071027;
-            --accent: #0b66ff;
-        }
+      :root {
+        --bg: #0b1020;
+        --card: #071027;
+        --accent: #0b66ff;
+      }
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(60px);
-            transition: all 0.9s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+      .reveal {
+        opacity: 0;
+        transform: translateY(60px);
+        transition: all 0.9s cubic-bezier(0.25, 0.1, 0.25, 1);
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-        .hero-bg {
-            background: linear-gradient(135deg, #0b1020 0%, #1a2340 100%);
-        }
+      .hero-bg {
+        background: linear-gradient(135deg, #0b1020 0%, #1a2340 100%);
+      }
 
-        .card-hover:hover {
-            transform: translateY(-12px) scale(1.03);
-            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
-        }
+      .card-hover:hover {
+        transform: translateY(-12px) scale(1.03);
+        box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+      }
 
-        .portfolio-card {
-            transition: all 0.3s ease;
-        }
+      .portfolio-card {
+        transition: all 0.3s ease;
+      }
     </style>
-</head>
+  </head>
 
-<body class="bg-[color:var(--bg)] text-white antialiased">
+  <body class="bg-[color:var(--bg)] text-white antialiased">
     <!-- HEADER -->
-    <header class="fixed inset-x-0 top-0 z-50 bg-black/80 backdrop-blur-lg border-b border-white/10">
-        <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
-            <a href="#home" class="flex items-center gap-2 group">
-                <span class="text-3xl font-bold text-yellow-300 tracking-tighter">Thu</span>
-                <span class="text-3xl font-bold text-white tracking-tighter group-hover:text-yellow-300 transition">Fail.</span>
-            </a>
+    <header
+      class="fixed inset-x-0 top-0 z-50 bg-black/80 backdrop-blur-lg border-b border-white/10"
+    >
+      <div
+        class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between"
+      >
+        <a href="#home" class="flex items-center gap-2 group">
+          <span class="text-3xl font-bold text-yellow-300 tracking-tighter"
+            >Thu</span
+          >
+          <span
+            class="text-3xl font-bold text-white tracking-tighter group-hover:text-yellow-300 transition"
+            >Fail.</span
+          >
+        </a>
 
-            <nav class="hidden md:flex items-center gap-10 text-sm font-medium">
-                <a href="#home" class="nav-link text-gray-300 hover:text-white">Beranda</a>
-                <a href="#about" class="nav-link text-gray-300 hover:text-white">Tentang</a>
-                <a href="#skills" class="nav-link text-gray-300 hover:text-white">Keterampilan</a>
-                <a href="#works" class="nav-link text-gray-300 hover:text-white">Karya</a>
-                <a href="#contact" class="nav-link text-gray-300 hover:text-white">Kontak</a>
-            </nav>
+        <nav class="hidden md:flex items-center gap-10 text-sm font-medium">
+          <a href="#home" class="nav-link text-gray-300 hover:text-white"
+            >Beranda</a
+          >
+          <a href="#about" class="nav-link text-gray-300 hover:text-white"
+            >Tentang</a
+          >
+          <a href="#skills" class="nav-link text-gray-300 hover:text-white"
+            >Keterampilan</a
+          >
+          <a href="#works" class="nav-link text-gray-300 hover:text-white"
+            >Karya</a
+          >
+          <a href="#contact" class="nav-link text-gray-300 hover:text-white"
+            >Kontak</a
+          >
+        </nav>
 
-            <button onclick="toggleMenu()" class="md:hidden p-3 rounded-2xl hover:bg-white/10 transition">
-                <i class="bx bx-menu text-3xl" id="menuIcon"></i>
-            </button>
+        <button
+          onclick="toggleMenu()"
+          class="md:hidden p-3 rounded-2xl hover:bg-white/10 transition"
+        >
+          <i class="bx bx-menu text-3xl" id="menuIcon"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-black/95 backdrop-blur-lg border-t border-white/10"
+      >
+        <div class="flex flex-col px-6 py-8 gap-6 text-lg">
+          <a href="#home" onclick="toggleMenu()" class="hover:text-yellow-300"
+            >Beranda</a
+          >
+          <a href="#about" onclick="toggleMenu()" class="hover:text-yellow-300"
+            >Tentang</a
+          >
+          <a href="#skills" onclick="toggleMenu()" class="hover:text-yellow-300"
+            >Keterampilan</a
+          >
+          <a href="#works" onclick="toggleMenu()" class="hover:text-yellow-300"
+            >Karya</a
+          >
+          <a
+            href="#contact"
+            onclick="toggleMenu()"
+            class="hover:text-yellow-300"
+            >Kontak</a
+          >
         </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden bg-black/95 backdrop-blur-lg border-t border-white/10">
-            <div class="flex flex-col px-6 py-8 gap-6 text-lg">
-                <a href="#home" onclick="toggleMenu()" class="hover:text-yellow-300">Beranda</a>
-                <a href="#about" onclick="toggleMenu()" class="hover:text-yellow-300">Tentang</a>
-                <a href="#skills" onclick="toggleMenu()" class="hover:text-yellow-300">Keterampilan</a>
-                <a href="#works" onclick="toggleMenu()" class="hover:text-yellow-300">Karya</a>
-                <a href="#contact" onclick="toggleMenu()" class="hover:text-yellow-300">Kontak</a>
-            </div>
-        </div>
+      </div>
     </header>
 
     <main class="pt-20">
-        <!-- HERO -->
-        <section id="home" class="hero-bg min-h-screen flex items-center relative overflow-hidden">
-            <div class="max-w-6xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-8 reveal">
-                    <div class="inline-flex items-center gap-3 px-5 py-2 bg-white/5 border border-white/10 rounded-3xl text-sm">
-                        <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                        <span class="text-emerald-300">Available for Freelance</span>
-                    </div>
-
-                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-none tracking-tighter">
-                        Muhammad<br>Thufail
-                    </h1>
-
-                    <p class="text-xl md:text-2xl text-slate-300">Programmer &amp; Designer</p>
-                    <p class="text-base md:text-lg text-slate-400 max-w-lg">
-                        Membuat website modern, desain menarik, dan konten edukasi Islami berkualitas tinggi.
-                    </p>
-
-                    <div class="flex flex-wrap gap-5">
-                        <a href="#contact" class="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-8 py-4 rounded-3xl text-lg transition-all active:scale-95 shadow-xl">
-                            Hubungi Saya
-                        </a>
-                        <a href="#works" class="inline-flex items-center gap-3 text-slate-300 hover:text-white transition text-lg">
-                            Lihat Karya <span class="text-2xl transition">→</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="flex justify-center lg:justify-end reveal">
-                    <div class="relative w-72 md:w-80 lg:w-96">
-                        <div class="absolute -inset-6 bg-gradient-to-br from-yellow-300/30 to-blue-500/30 rounded-[4rem] rotate-12 blur-3xl"></div>
-                        <img src="./images/profile.jpeg" alt="Muhammad Thufail" 
-                             class="w-full aspect-square object-cover rounded-3xl shadow-2xl border border-white/10 relative z-10">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ABOUT -->
-        <section id="about" class="max-w-6xl mx-auto px-6 py-24">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="reveal">
-                    <img src="./images/pemandangan.png" alt="Pemandangan" 
-                         class="rounded-3xl shadow-2xl w-full h-auto object-cover">
-                </div>
-                <div class="space-y-6 reveal">
-                    <h2 class="text-4xl md:text-5xl font-bold tracking-tighter">Tentang Saya</h2>
-                    <p class="text-slate-300 text-lg leading-relaxed">
-                        Nama saya Muhammad Thufail Al-Ghifari, lahir di Bekasi 30 Maret 2008. 
-                        Saya seorang Front-End Developer yang senang membuat website interaktif dan desain yang estetis.
-                    </p>
-                    <p class="text-slate-300 text-lg leading-relaxed">
-                        Saat ini saya fokus pada HTML, CSS, Tailwind CSS, dan JavaScript. Saya juga aktif membuat konten edukasi Islami.
-                    </p>
-                    <div class="flex gap-4 pt-6">
-                        <a href="#works" class="px-8 py-4 bg-yellow-300 text-black font-semibold rounded-3xl hover:bg-yellow-400 transition">Lihat Karya</a>
-                        <a href="#contact" class="px-8 py-4 border border-white/30 hover:bg-white/10 rounded-3xl transition">Hubungi</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SKILLS -->
-        <section id="skills" class="max-w-6xl mx-auto px-6 py-24 bg-black/40">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-4xl md:text-5xl font-bold tracking-tighter">Keterampilan Saya</h2>
+      <!-- HERO -->
+      <section
+        id="home"
+        class="hero-bg min-h-screen flex items-center relative overflow-hidden"
+      >
+        <div
+          class="max-w-6xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center"
+        >
+          <div class="space-y-8 reveal">
+            <div
+              class="inline-flex items-center gap-3 px-5 py-2 bg-white/5 border border-white/10 rounded-3xl text-sm"
+            >
+              <div
+                class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"
+              ></div>
+              <span class="text-emerald-300">Available for Freelance</span>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card-hover bg-[color:var(--card)] rounded-3xl p-8 text-center border border-white/10 reveal">
-                    <img src="./images/html.png" alt="HTML" class="w-20 h-20 mx-auto mb-6">
-                    <h4 class="text-2xl font-semibold mb-3">HTML 5</h4>
-                    <p class="text-slate-400">Fondasi website yang kuat dan semantik.</p>
-                </div>
-                <div class="card-hover bg-[color:var(--card)] rounded-3xl p-8 text-center border border-white/10 reveal">
-                    <img src="./images/css.png" alt="CSS" class="w-20 h-20 mx-auto mb-6">
-                    <h4 class="text-2xl font-semibold mb-3">Tailwind CSS</h4>
-                    <p class="text-slate-400">Desain cepat, modern, dan responsif.</p>
-                </div>
-                <div class="card-hover bg-[color:var(--card)] rounded-3xl p-8 text-center border border-white/10 reveal">
-                    <img src="./images/figma.png" alt="Figma" class="w-20 h-20 mx-auto mb-6">
-                    <h4 class="text-2xl font-semibold mb-3">Figma</h4>
-                    <p class="text-slate-400">UI/UX Design yang user friendly.</p>
-                </div>
-            </div>
-        </section>
+            <h1
+              class="text-5xl md:text-6xl lg:text-7xl font-bold leading-none tracking-tighter"
+            >
+              Muhammad<br />Thufail
+            </h1>
 
-        <!-- WORKS / PORTFOLIO -->
-        <section id="works" class="max-w-6xl mx-auto px-6 py-24">
-            <div class="text-center mb-16 reveal">
-                <div class="inline-flex items-center gap-2 px-5 py-2 bg-blue-950 border border-blue-800 rounded-3xl mb-6">
-                    <span class="text-blue-400 text-sm font-semibold tracking-widest">PORTFOLIO</span>
-                </div>
-                <h2 class="text-5xl md:text-6xl font-bold tracking-tighter text-white">Karya Saya</h2>
-                <p class="mt-6 text-slate-400 text-lg max-w-2xl mx-auto">
-                    Koleksi proyek terbaik saya di bidang desain, pengembangan web, hafalan Al-Qur'an, konten edukasi, dan lainnya.
-                </p>
-            </div>
+            <p class="text-xl md:text-2xl text-slate-300">
+              Programmer &amp; Designer
+            </p>
+            <p class="text-base md:text-lg text-slate-400 max-w-lg">
+              Membuat website modern, desain menarik, dan konten edukasi Islami
+              berkualitas tinggi.
+            </p>
 
-            <!-- Filter Buttons -->
-            <div class="flex flex-wrap justify-center gap-3 mb-12" id="category-filters">
-                <button onclick="filterCategory('all')" class="category-btn active px-7 py-3 bg-white text-black font-semibold rounded-3xl text-sm transition-all hover:scale-105 shadow-lg">Semua Karya</button>
-                <button onclick="filterCategory('poster')" class="category-btn px-7 py-3 border border-slate-700 hover:border-slate-500 font-semibold rounded-3xl text-sm transition-all">Poster</button>
-                <button onclick="filterCategory('quran')" class="category-btn px-7 py-3 border border-slate-700 hover:border-slate-500 font-semibold rounded-3xl text-sm transition-all">Al-Qur'an</button>
-                <button onclick="filterCategory('video')" class="category-btn px-7 py-3 border border-slate-700 hover:border-slate-500 font-semibold rounded-3xl text-sm transition-all">Video</button>
-                <button onclick="filterCategory('web')" class="category-btn px-7 py-3 border border-slate-700 hover:border-slate-500 font-semibold rounded-3xl text-sm transition-all">Web Project</button>
-                <button onclick="filterCategory('kitab')" class="category-btn px-7 py-3 border border-slate-700 hover:border-slate-500 font-semibold rounded-3xl text-sm transition-all">Kitab</button>
+            <div class="flex flex-wrap gap-5">
+              <a
+                href="#contact"
+                class="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-8 py-4 rounded-3xl text-lg transition-all active:scale-95 shadow-xl"
+              >
+                Hubungi Saya
+              </a>
+              <a
+                href="#works"
+                class="inline-flex items-center gap-3 text-slate-300 hover:text-white transition text-lg"
+              >
+                Lihat Karya <span class="text-2xl transition">→</span>
+              </a>
             </div>
+          </div>
 
-    <!-- Portfolio Grid -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
-
-        <!-- 1. Poster -->
-        <article class="portfolio-card group rounded-3xl overflow-hidden border border-zinc-800 hover:border-blue-600 transition-all duration-300 hover:-translate-y-2" data-category="poster">
-            <div class="relative">
-                <img src="./images/poster.png" 
-                     alt="Poster Digital" 
-                     class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105">
-                <div class="absolute top-4 right-4 bg-black/80 text-white text-xs font-bold px-4 py-1.5 rounded-2xl backdrop-blur-md">
-                    DESAIN
-                </div>
+          <div class="flex justify-center lg:justify-end reveal">
+            <div class="relative w-72 md:w-80 lg:w-96">
+              <div
+                class="absolute -inset-6 bg-gradient-to-br from-yellow-300/30 to-blue-500/30 rounded-[4rem] rotate-12 blur-3xl"
+              ></div>
+              <img
+                src="./images/profile.jpeg"
+                alt="Muhammad Thufail"
+                class="w-full aspect-square object-cover rounded-3xl shadow-2xl border border-white/10 relative z-10"
+              />
             </div>
-            <div class="p-8">
-                <h3 class="text-2xl font-semibold text-white mb-3">Poster Digital</h3>
-                <p class="text-slate-400 text-[15px] leading-relaxed mb-8">
-                    Kumpulan desain poster dan edukasi.
-                </p>
-                <div class="flex justify-between items-center">
-                    <span class="text-xs uppercase tracking-widest text-blue-400">Graphic Design</span>
-                    <a href="https://drive.google.com/file/d/1Fs2VLJeIaNtXNlqmGdkAp4ANoc7p8cuz/view?usp=drive_link" 
-                       target="_blank"
-                       class="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-6 py-3 rounded-2xl text-sm transition-all flex items-center gap-2">
-                        Lihat Koleksi
-                        <span>→</span>
-                    </a>
-                </div>
-            </div>
-        </article>
-
-        <!-- 2. Tahfidz -->
-        <article class="portfolio-card group rounded-3xl overflow-hidden border border-zinc-800 hover:border-blue-600 transition-all duration-300 hover:-translate-y-2" data-category="quran">
-            <div class="relative">
-                <img src="./images/tahfidz.png" 
-                     alt="Tahfidz" 
-                     class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105">
-                <div class="absolute top-4 right-4 bg-emerald-600 text-white text-xs font-bold px-4 py-1.5 rounded-2xl">
-                    TAHFIDZ
-                </div>
-            </div>
-            <div class="p-8">
-                <h3 class="text-2xl font-semibold text-white mb-3">Tahfidz & Murotal</h3>
-                <p class="text-slate-400 text-[15px] leading-relaxed mb-8">
-                    Rekaman hafalan Al-Qur'an.
-                </p>
-                <div class="flex justify-between items-center">
-                    <span class="text-xs uppercase tracking-widest text-emerald-400">Al-Qur'an</span>
-                    <a href="https://youtu.be/507QNVYB4Z0?si=v3cxeFFrxXi3E28e" 
-                       target="_blank"
-                       class="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-6 py-3 rounded-2xl text-sm transition-all flex items-center gap-2">
-                        Buka Playlist
-                        <span>→</span>
-                    </a>
-                </div>
-            </div>
-        </article>
-
-        <!-- 3. Slicing -->
-        <article class="portfolio-card rounded-3xl overflow-hidden border border-zinc-800 hover:border-blue-600 transition-all duration-300 hover:-translate-y-2" data-category="web">
-            <div class="relative">
-                <img src="./images/perpustakaan.png" 
-                     alt="Slicing Website" 
-                     class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105">
-                <div class="absolute top-4 right-4 bg-gray-600 text-white text-xs font-bold px-4 py-1.5 rounded-2xl">
-                    PERPUSTAKAAN
-                </div>
-            </div>
-            <div class="p-8">
-                <h3 class="text-2xl font-semibold text-white mb-3">Website Perpustakaan</h3>
-                <p class="text-slate-400 text-[15px] leading-relaxed mb-8">
-                    Proyek perpustakaan digital dengan django dan database SQLite
-                </p>
-                <div class="flex justify-between items-center">
-                    <span class="text-xs uppercase tracking-widest text-sky-400">Web Development</span>
-                    <a href="https://muhammadthufail.pythonanywhere.com/" 
-                       target="_blank"
-                       class="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-6 py-3 rounded-2xl text-sm transition-all flex items-center gap-2">
-                        Kunjungi Site
-                        <span>→</span>
-                    </a>
-                </div>
-            </div>
-        </article>
-
-        <article class="portfolio-card rounded-3xl overflow-hidden border border-zinc-800 hover:border-blue-600 transition-all duration-300 hover:-translate-y-2" data-category="web">
-            <div class="relative">
-                <img src="./images/slicing.png" 
-                     alt="Slicing Website" 
-                     class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105">
-                <div class="absolute top-4 right-4 bg-sky-600 text-white text-xs font-bold px-4 py-1.5 rounded-2xl">
-                    FRONTEND
-                </div>
-            </div>
-            <div class="p-8">
-                <h3 class="text-2xl font-semibold text-white mb-3">Website Slicing</h3>
-                <p class="text-slate-400 text-[15px] leading-relaxed mb-8">
-                    Proyek slicing landing page modern dengan Tailwind CSS.
-                </p>
-                <div class="flex justify-between items-center">
-                    <span class="text-xs uppercase tracking-widest text-sky-400">Web Development</span>
-                    <a href="https://thufailmuhammad37-mta.github.io/slicing/" 
-                       target="_blank"
-                       class="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-6 py-3 rounded-2xl text-sm transition-all flex items-center gap-2">
-                        Kunjungi Site
-                        <span>→</span>
-                    </a>
-                </div>
-            </div>
-        </article>
-
-        <!-- 4. Muhadatsah -->
-        <article class="portfolio-card group rounded-3xl overflow-hidden border border-zinc-800 hover:border-blue-600 transition-all duration-300 hover:-translate-y-2" data-category="video">
-            <div class="relative">
-                <img src="./images/muhadatsah.png" 
-                     alt="Muhadatsah" 
-                     class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105">
-                <div class="absolute top-4 right-4 bg-red-600 text-white text-xs font-bold px-4 py-1.5 rounded-2xl">
-                    MUHADATSAH
-                </div>     
-            </div>
-            <div class="p-8">
-                <h3 class="text-2xl font-semibold text-white mb-3">Muhadatsah Bahasa Arab</h3>
-                <p class="text-slate-400 text-[15px] leading-relaxed mb-8">
-                    Kumpulan video percakapan sehari-hari dalam bahasa Arab.
-                </p>
-                <div class="flex justify-between items-center">
-                    <span class="text-xs uppercase tracking-widest text-amber-400">Language</span>
-                    <a href="https://www.youtube.com/playlist?list=PL8Rsy0zJ3T_q_1NII69pvnRGHEfbO-MEC" 
-                       target="_blank"
-                       class="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-6 py-3 rounded-2xl text-sm transition-all flex items-center gap-2">
-                        Buka Playlist
-                        <span>→</span>
-                    </a>
-                </div>
-            </div>
-        </article>
-
-        <!-- 5. Tahajji -->
-        <article class="portfolio-card rounded-3xl overflow-hidden border border-zinc-800 hover:border-blue-600 transition-all duration-300 hover:-translate-y-2" data-category="quran">
-            <div class="relative">
-                <img src="./images/tahajji.png" 
-                     alt="Tahajji" 
-                     class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105">
-                <div class="absolute top-4 right-4 bg-yellow-600 text-white text-xs font-bold px-4 py-1.5 rounded-2xl">
-                    TAHAJJI
-                </div>     
-            </div>
-            <div class="p-8">
-                <h3 class="text-2xl font-semibold text-white mb-3">Tahajji Al-Qur'an</h3>
-                <p class="text-slate-400 text-[15px] leading-relaxed mb-8">
-                    Latihan bacaan tahajji dan tajwid.
-                </p>
-                <div class="flex justify-between items-center">
-                    <span class="text-xs uppercase tracking-widest text-emerald-400">QOIDAH SAMIRIYAH</span>
-                    <a href="https://youtu.be/_WKWdghEinE?si=kX0ewrP7jCRJHTAI" 
-                       target="_blank"
-                       class="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-6 py-3 rounded-2xl text-sm transition-all flex items-center gap-2">
-                        Buka Playlist
-                        <span>→</span>
-                    </a>
-                </div>
-            </div>
-        </article>
-
-        <!-- 6. Project -->
-        <article class="portfolio-card group rounded-3xl overflow-hidden border border-zinc-800 hover:border-blue-600 transition-all duration-300 hover:-translate-y-2" data-category="web">
-            <div class="relative">
-                <img src="./images/project.png" 
-                     alt="Project Website" 
-                     class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105">
-                <div class="absolute top-4 right-4 bg-green-600 text-white text-xs font-bold px-4 py-1.5 rounded-2xl">
-                    GITHUB
-                </div>     
-            </div>
-            <div class="p-8">
-                <h3 class="text-2xl font-semibold text-white mb-3">Proyek Website</h3>
-                <p class="text-slate-400 text-[15px] leading-relaxed mb-8">
-                    Berbagai project website yang telah saya kerjakan.
-                </p>
-                <div class="flex justify-between items-center">
-                    <span class="text-xs uppercase tracking-widest text-violet-400">Development</span>
-                    <a href="https://github.com/thufailmuhammad37-mta" 
-                       target="_blank"
-                       class="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-6 py-3 rounded-2xl text-sm transition-all flex items-center gap-2">
-                        Lihat GitHub
-                        <span>→</span>
-                    </a>
-                </div>
-            </div>
-        </article>
-
-        <!-- 7. Tugas -->
-        <article class="portfolio-card group rounded-3xl overflow-hidden border border-zinc-800 hover:border-blue-600 transition-all duration-300 hover:-translate-y-2" data-category="other">
-            <div class="relative">
-                <img src="./images/tugas.png" 
-                     alt="Tugas Rumah" 
-                     class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105">
-                <div class="absolute top-4 right-4 bg-purple-600 text-white text-xs font-bold px-4 py-1.5 rounded-2xl">
-                    KEWAJIBAN
-                </div>     
-            </div>
-            <div class="p-8">
-                <h3 class="text-2xl font-semibold text-white mb-3">Tugas Rumah S1</h3>
-                <p class="text-slate-400 text-[15px] leading-relaxed mb-8">
-                    Kumpulan tugas di rumah selama liburan.
-                </p>
-                <div class="flex justify-between items-center">
-                    <span class="text-xs uppercase tracking-widest text-slate-400">Kewajiban</span>
-                    <a href="https://drive.google.com/drive/folders/10EBqjP3Gs6FveWfPqwqcI45m-3icEg6-" 
-                       target="_blank"
-                       class="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-6 py-3 rounded-2xl text-sm transition-all flex items-center gap-2">
-                        Buka Folder
-                        <span>→</span>
-                    </a>
-                </div>
-            </div>
-        </article>
-
-        <!-- KITAB 1 - Aqidatuna -->
-<article class="portfolio-card group rounded-3xl overflow-hidden border border-zinc-800 
-                hover:border-blue-600 transition-all duration-300 ease-in-out hover:-translate-y-2 
-                opacity-100 scale-100" 
-         data-category="kitab">
-    <div class="relative">
-        <img src="./images/aqidatuna.png" 
-             alt="Kitab Aqidatuna" 
-             class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute top-4 right-4 bg-pink-600 text-white text-xs font-bold px-4 py-1.5 rounded-2xl">
-            AQIDATUNA
-        </div>     
-    </div>
-    <div class="p-8">
-        <h3 class="text-2xl font-semibold text-white mb-3">Kitab Aqidatuna</h3>
-        <p class="text-slate-400 text-[15px] leading-relaxed mb-8">
-            Koleksi kitab, catatan, atau materi bacaan yang saya pelajari.
-        </p>
-        
-        <div class="flex flex-wrap gap-3">
-            <a href="https://www.youtube.com/playlist?list=PL8Rsy0zJ3T_r8gRTUwoyVGSbJNTjvHmZJ" 
-               target="_blank"
-               class="flex-1 bg-red-600 hover:bg-red-700 text-white font-semibold px-5 py-3 rounded-2xl text-sm transition-all flex items-center justify-center gap-2">
-                <span>YouTube</span>
-                <span>▶</span>
-            </a>
-            <a href="https://docs.google.com/document/d/1Iy6RDUy8q7SRvcr9Mxbr3Ne98CzL2S1P/edit?usp=drive_link&ouid=109763365683715289926&rtpof=true&sd=true" 
-               target="_blank"
-               class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-3 rounded-2xl text-sm transition-all flex items-center justify-center gap-2">
-                <span>Google Drive</span>
-                <span>📁</span>
-            </a>
+          </div>
         </div>
-    </div>
-</article>
+      </section>
 
-<!-- KITAB 2 - Fathul Ali -->
-<article class="portfolio-card group rounded-3xl overflow-hidden border border-zinc-800 
-                hover:border-blue-600 transition-all duration-300 ease-in-out hover:-translate-y-2 
-                opacity-100 scale-100" 
-         data-category="kitab">
-    <div class="relative">
-        <img src="./images/fathul ali.png" 
-             alt="Kitab Fathul Ali" 
-             class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute top-4 right-4 bg-orange-600 text-white text-xs font-bold px-4 py-1.5 rounded-2xl">
-            FATHUL ALI
-        </div>     
-    </div>
-    <div class="p-8">
-        <h3 class="text-2xl font-semibold text-white mb-3">Kitab Fathul Ali</h3>
-        <p class="text-slate-400 text-[15px] leading-relaxed mb-8">
-            Kumpulan video tasmi' matan per-marhalah.
-        </p>
-        
-        <div class="flex flex-wrap gap-3">
-            <a href="https://www.youtube.com/playlist?list=PLBUbJkL9SyTA" 
-               target="_blank"
-               class="flex-1 bg-red-600 hover:bg-red-700 text-white font-semibold px-5 py-3 rounded-2xl text-sm transition-all flex items-center justify-center gap-2">
-                <span>YouTube</span>
-                <span>▶</span>
-            </a>
-            <a href="https://docs.google.com/document/d/1MhE50O29wnL23TUTOKpC1Hb1F8x-We_y/edit?usp=drive_link&ouid=109763365683715289926&rtpof=true&sd=true" 
-               target="_blank"
-               class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-3 rounded-2xl text-sm transition-all flex items-center justify-center gap-2">
-                <span>Google Drive</span>
-                <span>📁</span>
-            </a>
+      <!-- ABOUT -->
+      <section id="about" class="max-w-6xl mx-auto px-6 py-24">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="reveal">
+            <img
+              src="./images/pemandangan.png"
+              alt="Pemandangan"
+              class="rounded-3xl shadow-2xl w-full h-auto object-cover"
+            />
+          </div>
+          <div class="space-y-6 reveal">
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tighter">
+              Tentang Saya
+            </h2>
+            <p class="text-slate-300 text-lg leading-relaxed">
+              Nama saya Muhammad Thufail Al-Ghifari, lahir di Bekasi 30 Maret
+              2008. Saya seorang Front-End Developer yang senang membuat website
+              interaktif dan desain yang estetis.
+            </p>
+            <p class="text-slate-300 text-lg leading-relaxed">
+              Saat ini saya fokus pada HTML, CSS, Tailwind CSS, dan JavaScript.
+              Saya juga aktif membuat konten edukasi Islami.
+            </p>
+            <div class="flex gap-4 pt-6">
+              <a
+                href="#works"
+                class="px-8 py-4 bg-yellow-300 text-black font-semibold rounded-3xl hover:bg-yellow-400 transition"
+                >Lihat Karya</a
+              >
+              <a
+                href="#contact"
+                class="px-8 py-4 border border-white/30 hover:bg-white/10 rounded-3xl transition"
+                >Hubungi</a
+              >
+            </div>
+          </div>
         </div>
-    </div>
-</article>
+      </section>
 
-<!-- KITAB 3 - Nabiyyuna -->
-<article class="portfolio-card group rounded-3xl overflow-hidden border border-zinc-800 
-                hover:border-blue-600 transition-all duration-300 ease-in-out hover:-translate-y-2 
-                opacity-100 scale-100" 
-         data-category="kitab">
-    <div class="relative">
-        <img src="./images/nabiyyuna.png" 
-             alt="Kitab Nabiyyuna" 
-             class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute top-4 right-4 bg-cyan-600 text-white text-xs font-bold px-4 py-1.5 rounded-2xl">
-            NABIYYUNA
-        </div>     
-    </div>
-    <div class="p-8">
-        <h3 class="text-2xl font-semibold text-white mb-3">Kitab Nabiyyuna</h3>
-        <p class="text-slate-400 text-[15px] leading-relaxed mb-8">
-            Kumpulan video tasmi' matan per-marhalah.
-        </p>
-        
-        <div class="flex flex-wrap gap-3">
-            <a href="https://www.youtube.com/playlist?list=PLaPtPIvJqe4w" 
-               target="_blank"
-               class="flex-1 bg-red-600 hover:bg-red-700 text-white font-semibold px-5 py-3 rounded-2xl text-sm transition-all flex items-center justify-center gap-2">
-                <span>YouTube</span>
-                <span>▶</span>
-            </a>
-            <a href="https://docs.google.com/document/d/1ZV9EvpSgi6qmdLEFM4J2qBkbrgfeWJBh/edit?usp=drive_link&ouid=109763365683715289926&rtpof=true&sd=true" 
-               target="_blank"
-               class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-3 rounded-2xl text-sm transition-all flex items-center justify-center gap-2">
-                <span>Google Drive</span>
-                <span>📁</span>
-            </a>
+      <!-- SKILLS -->
+      <section id="skills" class="max-w-6xl mx-auto px-6 py-24 bg-black/40">
+        <div class="text-center mb-16 reveal">
+          <h2 class="text-4xl md:text-5xl font-bold tracking-tighter">
+            Keterampilan Saya
+          </h2>
         </div>
-    </div>
-</article>
-    </div>
 
-    <!-- CTA -->
-            <div class="text-center mt-20">
-                <a href="https://github.com/thufailmuhammad37-mta" target="_blank"
-                   class="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold text-lg px-10 py-5 rounded-3xl hover:scale-105 transition-all">
-                    Jelajahi Semua Proyek di GitHub <span class="text-2xl">→</span>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="card-hover bg-[color:var(--card)] rounded-3xl p-8 text-center border border-white/10 reveal"
+          >
+            <img
+              src="./images/html.png"
+              alt="HTML"
+              class="w-20 h-20 mx-auto mb-6"
+            />
+            <h4 class="text-2xl font-semibold mb-3">HTML 5</h4>
+            <p class="text-slate-400">
+              Fondasi website yang kuat dan semantik.
+            </p>
+          </div>
+          <div
+            class="card-hover bg-[color:var(--card)] rounded-3xl p-8 text-center border border-white/10 reveal"
+          >
+            <img
+              src="./images/css.png"
+              alt="CSS"
+              class="w-20 h-20 mx-auto mb-6"
+            />
+            <h4 class="text-2xl font-semibold mb-3">Tailwind CSS</h4>
+            <p class="text-slate-400">Desain cepat, modern, dan responsif.</p>
+          </div>
+          <div
+            class="card-hover bg-[color:var(--card)] rounded-3xl p-8 text-center border border-white/10 reveal"
+          >
+            <img
+              src="./images/figma.png"
+              alt="Figma"
+              class="w-20 h-20 mx-auto mb-6"
+            />
+            <h4 class="text-2xl font-semibold mb-3">Figma</h4>
+            <p class="text-slate-400">UI/UX Design yang user friendly.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORKS / PORTFOLIO -->
+      <section id="works" class="max-w-6xl mx-auto px-6 py-24">
+        <div class="text-center mb-16 reveal">
+          <div
+            class="inline-flex items-center gap-2 px-5 py-2 bg-blue-950 border border-blue-800 rounded-3xl mb-6"
+          >
+            <span class="text-blue-400 text-sm font-semibold tracking-widest"
+              >PORTFOLIO</span
+            >
+          </div>
+          <h2
+            class="text-5xl md:text-6xl font-bold tracking-tighter text-white"
+          >
+            Karya Saya
+          </h2>
+          <p class="mt-6 text-slate-400 text-lg max-w-2xl mx-auto">
+            Koleksi proyek terbaik saya di bidang desain, pengembangan web,
+            hafalan Al-Qur'an, konten edukasi, dan lainnya.
+          </p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div
+          class="flex flex-wrap justify-center gap-3 mb-12"
+          id="category-filters"
+        >
+          <button
+            onclick="filterCategory('all')"
+            class="category-btn active px-7 py-3 bg-white text-black font-semibold rounded-3xl text-sm transition-all hover:scale-105 shadow-lg"
+          >
+            Semua Karya
+          </button>
+          <button
+            onclick="filterCategory('poster')"
+            class="category-btn px-7 py-3 border border-slate-700 hover:border-slate-500 font-semibold rounded-3xl text-sm transition-all"
+          >
+            Poster
+          </button>
+          <button
+            onclick="filterCategory('quran')"
+            class="category-btn px-7 py-3 border border-slate-700 hover:border-slate-500 font-semibold rounded-3xl text-sm transition-all"
+          >
+            Al-Qur'an
+          </button>
+          <button
+            onclick="filterCategory('video')"
+            class="category-btn px-7 py-3 border border-slate-700 hover:border-slate-500 font-semibold rounded-3xl text-sm transition-all"
+          >
+            Video
+          </button>
+          <button
+            onclick="filterCategory('web')"
+            class="category-btn px-7 py-3 border border-slate-700 hover:border-slate-500 font-semibold rounded-3xl text-sm transition-all"
+          >
+            Web Project
+          </button>
+          <button
+            onclick="filterCategory('kitab')"
+            class="category-btn px-7 py-3 border border-slate-700 hover:border-slate-500 font-semibold rounded-3xl text-sm transition-all"
+          >
+            Kitab
+          </button>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div
+          class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          id="portfolio-grid"
+        >
+          <!-- 1. Poster -->
+          <article
+            class="portfolio-card group rounded-3xl overflow-hidden border border-zinc-800 hover:border-blue-600 transition-all duration-300 hover:-translate-y-2"
+            data-category="poster"
+          >
+            <div class="relative">
+              <img
+                src="./images/poster.png"
+                alt="Poster Digital"
+                class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div
+                class="absolute top-4 right-4 bg-black/80 text-white text-xs font-bold px-4 py-1.5 rounded-2xl backdrop-blur-md"
+              >
+                DESAIN
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-semibold text-white mb-3">
+                Poster Digital
+              </h3>
+              <p class="text-slate-400 text-[15px] leading-relaxed mb-8">
+                Kumpulan desain poster dan edukasi.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-xs uppercase tracking-widest text-blue-400"
+                  >Graphic Design</span
+                >
+                <a
+                  href="https://drive.google.com/file/d/1Fs2VLJeIaNtXNlqmGdkAp4ANoc7p8cuz/view?usp=drive_link"
+                  target="_blank"
+                  class="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-6 py-3 rounded-2xl text-sm transition-all flex items-center gap-2"
+                >
+                  Lihat Koleksi
+                  <span>→</span>
                 </a>
+              </div>
             </div>
-</section>
+          </article>
 
-           <!-- CONTACT SECTION -->
+          <!-- 2. Tahfidz -->
+          <article
+            class="portfolio-card group rounded-3xl overflow-hidden border border-zinc-800 hover:border-blue-600 transition-all duration-300 hover:-translate-y-2"
+            data-category="quran"
+          >
+            <div class="relative">
+              <img
+                src="./images/tahfidz.png"
+                alt="Tahfidz"
+                class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div
+                class="absolute top-4 right-4 bg-emerald-600 text-white text-xs font-bold px-4 py-1.5 rounded-2xl"
+              >
+                TAHFIDZ
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-semibold text-white mb-3">
+                Tahfidz & Murotal
+              </h3>
+              <p class="text-slate-400 text-[15px] leading-relaxed mb-8">
+                Rekaman hafalan Al-Qur'an.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-xs uppercase tracking-widest text-emerald-400"
+                  >Al-Qur'an</span
+                >
+                <a
+                  href="https://youtu.be/507QNVYB4Z0?si=v3cxeFFrxXi3E28e"
+                  target="_blank"
+                  class="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-6 py-3 rounded-2xl text-sm transition-all flex items-center gap-2"
+                >
+                  Buka Playlist
+                  <span>→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Slicing -->
+          <article
+            class="portfolio-card rounded-3xl overflow-hidden border border-zinc-800 hover:border-blue-600 transition-all duration-300 hover:-translate-y-2"
+            data-category="web"
+          >
+            <div class="relative">
+              <img
+                src="./images/perpustakaan.png"
+                alt="Slicing Website"
+                class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div
+                class="absolute top-4 right-4 bg-gray-600 text-white text-xs font-bold px-4 py-1.5 rounded-2xl"
+              >
+                PERPUSTAKAAN
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-semibold text-white mb-3">
+                Website Perpustakaan
+              </h3>
+              <p class="text-slate-400 text-[15px] leading-relaxed mb-8">
+                Proyek perpustakaan digital dengan django dan database SQLite
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-xs uppercase tracking-widest text-sky-400"
+                  >Web Development</span
+                >
+                <a
+                  href="https://muhammadthufail.pythonanywhere.com/"
+                  target="_blank"
+                  class="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-6 py-3 rounded-2xl text-sm transition-all flex items-center gap-2"
+                >
+                  Kunjungi Site
+                  <span>→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="portfolio-card rounded-3xl overflow-hidden border border-zinc-800 hover:border-blue-600 transition-all duration-300 hover:-translate-y-2"
+            data-category="web"
+          >
+            <div class="relative">
+              <img
+                src="./images/slicing.png"
+                alt="Slicing Website"
+                class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div
+                class="absolute top-4 right-4 bg-sky-600 text-white text-xs font-bold px-4 py-1.5 rounded-2xl"
+              >
+                FRONTEND
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-semibold text-white mb-3">
+                Website Slicing
+              </h3>
+              <p class="text-slate-400 text-[15px] leading-relaxed mb-8">
+                Proyek slicing landing page modern dengan Tailwind CSS.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-xs uppercase tracking-widest text-sky-400"
+                  >Web Development</span
+                >
+                <a
+                  href="https://thufailmuhammad37-mta.github.io/slicing/"
+                  target="_blank"
+                  class="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-6 py-3 rounded-2xl text-sm transition-all flex items-center gap-2"
+                >
+                  Kunjungi Site
+                  <span>→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Muhadatsah -->
+          <article
+            class="portfolio-card group rounded-3xl overflow-hidden border border-zinc-800 hover:border-blue-600 transition-all duration-300 hover:-translate-y-2"
+            data-category="video"
+          >
+            <div class="relative">
+              <img
+                src="./images/muhadatsah.png"
+                alt="Muhadatsah"
+                class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div
+                class="absolute top-4 right-4 bg-red-600 text-white text-xs font-bold px-4 py-1.5 rounded-2xl"
+              >
+                MUHADATSAH
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-semibold text-white mb-3">
+                Muhadatsah Bahasa Arab
+              </h3>
+              <p class="text-slate-400 text-[15px] leading-relaxed mb-8">
+                Kumpulan video percakapan sehari-hari dalam bahasa Arab.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-xs uppercase tracking-widest text-amber-400"
+                  >Language</span
+                >
+                <a
+                  href="https://www.youtube.com/playlist?list=PL8Rsy0zJ3T_q_1NII69pvnRGHEfbO-MEC"
+                  target="_blank"
+                  class="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-6 py-3 rounded-2xl text-sm transition-all flex items-center gap-2"
+                >
+                  Buka Playlist
+                  <span>→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5. Tahajji -->
+          <article
+            class="portfolio-card rounded-3xl overflow-hidden border border-zinc-800 hover:border-blue-600 transition-all duration-300 hover:-translate-y-2"
+            data-category="quran"
+          >
+            <div class="relative">
+              <img
+                src="./images/tahajji.png"
+                alt="Tahajji"
+                class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div
+                class="absolute top-4 right-4 bg-yellow-600 text-white text-xs font-bold px-4 py-1.5 rounded-2xl"
+              >
+                TAHAJJI
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-semibold text-white mb-3">
+                Tahajji Al-Qur'an
+              </h3>
+              <p class="text-slate-400 text-[15px] leading-relaxed mb-8">
+                Latihan bacaan tahajji dan tajwid.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-xs uppercase tracking-widest text-emerald-400"
+                  >QOIDAH SAMIRIYAH</span
+                >
+                <a
+                  href="https://youtu.be/_WKWdghEinE?si=kX0ewrP7jCRJHTAI"
+                  target="_blank"
+                  class="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-6 py-3 rounded-2xl text-sm transition-all flex items-center gap-2"
+                >
+                  Buka Playlist
+                  <span>→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6. Project -->
+          <article
+            class="portfolio-card group rounded-3xl overflow-hidden border border-zinc-800 hover:border-blue-600 transition-all duration-300 hover:-translate-y-2"
+            data-category="web"
+          >
+            <div class="relative">
+              <img
+                src="./images/project.png"
+                alt="Project Website"
+                class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div
+                class="absolute top-4 right-4 bg-green-600 text-white text-xs font-bold px-4 py-1.5 rounded-2xl"
+              >
+                GITHUB
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-semibold text-white mb-3">
+                Proyek Website
+              </h3>
+              <p class="text-slate-400 text-[15px] leading-relaxed mb-8">
+                Berbagai project website yang telah saya kerjakan.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-xs uppercase tracking-widest text-violet-400"
+                  >Development</span
+                >
+                <a
+                  href="https://github.com/thufailmuhammad37-mta"
+                  target="_blank"
+                  class="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-6 py-3 rounded-2xl text-sm transition-all flex items-center gap-2"
+                >
+                  Lihat GitHub
+                  <span>→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 7. Tugas -->
+          <article
+            class="portfolio-card group rounded-3xl overflow-hidden border border-zinc-800 hover:border-blue-600 transition-all duration-300 hover:-translate-y-2"
+            data-category="other"
+          >
+            <div class="relative">
+              <img
+                src="./images/tugas.png"
+                alt="Tugas Rumah"
+                class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div
+                class="absolute top-4 right-4 bg-purple-600 text-white text-xs font-bold px-4 py-1.5 rounded-2xl"
+              >
+                KEWAJIBAN
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-semibold text-white mb-3">
+                Tugas Rumah S1
+              </h3>
+              <p class="text-slate-400 text-[15px] leading-relaxed mb-8">
+                Kumpulan tugas di rumah selama liburan.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-xs uppercase tracking-widest text-slate-400"
+                  >Kewajiban</span
+                >
+                <a
+                  href="https://drive.google.com/drive/folders/10EBqjP3Gs6FveWfPqwqcI45m-3icEg6-"
+                  target="_blank"
+                  class="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-6 py-3 rounded-2xl text-sm transition-all flex items-center gap-2"
+                >
+                  Buka Folder
+                  <span>→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- KITAB 1 - Aqidatuna -->
+          <article
+            class="portfolio-card group rounded-3xl overflow-hidden border border-zinc-800 hover:border-blue-600 transition-all duration-300 ease-in-out hover:-translate-y-2 opacity-100 scale-100"
+            data-category="kitab"
+          >
+            <div class="relative">
+              <img
+                src="./images/aqidatuna.png"
+                alt="Kitab Aqidatuna"
+                class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div
+                class="absolute top-4 right-4 bg-pink-600 text-white text-xs font-bold px-4 py-1.5 rounded-2xl"
+              >
+                AQIDATUNA
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-semibold text-white mb-3">
+                Kitab Aqidatuna
+              </h3>
+              <p class="text-slate-400 text-[15px] leading-relaxed mb-8">
+                Koleksi kitab, catatan, atau materi bacaan yang saya pelajari.
+              </p>
+
+              <div class="flex flex-wrap gap-3">
+                <a
+                  href="https://www.youtube.com/playlist?list=PL8Rsy0zJ3T_r8gRTUwoyVGSbJNTjvHmZJ"
+                  target="_blank"
+                  class="flex-1 bg-red-600 hover:bg-red-700 text-white font-semibold px-5 py-3 rounded-2xl text-sm transition-all flex items-center justify-center gap-2"
+                >
+                  <span>YouTube</span>
+                  <span>▶</span>
+                </a>
+                <a
+                  href="https://docs.google.com/document/d/1Iy6RDUy8q7SRvcr9Mxbr3Ne98CzL2S1P/edit?usp=drive_link&ouid=109763365683715289926&rtpof=true&sd=true"
+                  target="_blank"
+                  class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-3 rounded-2xl text-sm transition-all flex items-center justify-center gap-2"
+                >
+                  <span>Google Drive</span>
+                  <span>📁</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- KITAB 2 - Fathul Ali -->
+          <article
+            class="portfolio-card group rounded-3xl overflow-hidden border border-zinc-800 hover:border-blue-600 transition-all duration-300 ease-in-out hover:-translate-y-2 opacity-100 scale-100"
+            data-category="kitab"
+          >
+            <div class="relative">
+              <img
+                src="./images/fathul ali.png"
+                alt="Kitab Fathul Ali"
+                class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div
+                class="absolute top-4 right-4 bg-orange-600 text-white text-xs font-bold px-4 py-1.5 rounded-2xl"
+              >
+                FATHUL ALI
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-semibold text-white mb-3">
+                Kitab Fathul Ali
+              </h3>
+              <p class="text-slate-400 text-[15px] leading-relaxed mb-8">
+                Kumpulan video tasmi' matan per-marhalah.
+              </p>
+
+              <div class="flex flex-wrap gap-3">
+                <a
+                  href="https://www.youtube.com/playlist?list=PLBUbJkL9SyTA"
+                  target="_blank"
+                  class="flex-1 bg-red-600 hover:bg-red-700 text-white font-semibold px-5 py-3 rounded-2xl text-sm transition-all flex items-center justify-center gap-2"
+                >
+                  <span>YouTube</span>
+                  <span>▶</span>
+                </a>
+                <a
+                  href="https://docs.google.com/document/d/1MhE50O29wnL23TUTOKpC1Hb1F8x-We_y/edit?usp=drive_link&ouid=109763365683715289926&rtpof=true&sd=true"
+                  target="_blank"
+                  class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-3 rounded-2xl text-sm transition-all flex items-center justify-center gap-2"
+                >
+                  <span>Google Drive</span>
+                  <span>📁</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- KITAB 3 - Nabiyyuna -->
+          <article
+            class="portfolio-card group rounded-3xl overflow-hidden border border-zinc-800 hover:border-blue-600 transition-all duration-300 ease-in-out hover:-translate-y-2 opacity-100 scale-100"
+            data-category="kitab"
+          >
+            <div class="relative">
+              <img
+                src="./images/nabiyyuna.png"
+                alt="Kitab Nabiyyuna"
+                class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div
+                class="absolute top-4 right-4 bg-cyan-600 text-white text-xs font-bold px-4 py-1.5 rounded-2xl"
+              >
+                NABIYYUNA
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-semibold text-white mb-3">
+                Kitab Nabiyyuna
+              </h3>
+              <p class="text-slate-400 text-[15px] leading-relaxed mb-8">
+                Kumpulan video tasmi' matan per-marhalah.
+              </p>
+
+              <div class="flex flex-wrap gap-3">
+                <a
+                  href="https://www.youtube.com/playlist?list=PLaPtPIvJqe4w"
+                  target="_blank"
+                  class="flex-1 bg-red-600 hover:bg-red-700 text-white font-semibold px-5 py-3 rounded-2xl text-sm transition-all flex items-center justify-center gap-2"
+                >
+                  <span>YouTube</span>
+                  <span>▶</span>
+                </a>
+                <a
+                  href="https://docs.google.com/document/d/1ZV9EvpSgi6qmdLEFM4J2qBkbrgfeWJBh/edit?usp=drive_link&ouid=109763365683715289926&rtpof=true&sd=true"
+                  target="_blank"
+                  class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-3 rounded-2xl text-sm transition-all flex items-center justify-center gap-2"
+                >
+                  <span>Google Drive</span>
+                  <span>📁</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-20">
+          <a
+            href="https://github.com/thufailmuhammad37-mta"
+            target="_blank"
+            class="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold text-lg px-10 py-5 rounded-3xl hover:scale-105 transition-all"
+          >
+            Jelajahi Semua Proyek di GitHub <span class="text-2xl">→</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- CONTACT SECTION -->
       <section id="contact" class="max-w-6xl mx-auto px-6 py-24">
         <div class="text-center mb-16 reveal">
-          <h2 class="text-4xl md:text-5xl font-bold tracking-tighter">Hubungi Saya</h2>
+          <h2 class="text-4xl md:text-5xl font-bold tracking-tighter">
+            Hubungi Saya
+          </h2>
           <p class="text-slate-400 mt-4 max-w-md mx-auto">
-            Jika ingin berkolaborasi, bertanya, atau hanya mengobrol santai, saya siap mendengar.
+            Jika ingin berkolaborasi, bertanya, atau hanya mengobrol santai,
+            saya siap mendengar.
           </p>
         </div>
 
         <div class="grid lg:grid-cols-2 gap-12 items-start">
           <!-- Form -->
- <div class="reveal">
-    <form id="contactForm" 
-          class="bg-[color:var(--card)] rounded-3xl p-8 md:p-10 border border-white/10 shadow-xl">
-      <div class="space-y-6">
-        <div>
-          <input
-            type="text"
-            id="name"          
-            name="name"
-            placeholder="Nama lengkap Anda"
-            required
-            class="w-full bg-white/5 border border-white/10 focus:border-yellow-400 rounded-2xl px-6 py-4 outline-none transition text-white placeholder-slate-400"
-          />
-        </div>
-        <div>
-          <input
-            type="email"
-            id="email"         
-            name="email"
-            placeholder="Alamat email Anda"
-            required
-            class="w-full bg-white/5 border border-white/10 focus:border-yellow-400 rounded-2xl px-6 py-4 outline-none transition text-white placeholder-slate-400"
-          />
-        </div>
-        <div>
-          <textarea
-            id="message"       
-            name="message"
-            rows="6"
-            placeholder="Tulis pesan Anda di sini..."
-            required
-            class="w-full bg-white/5 border border-white/10 focus:border-yellow-400 rounded-3xl px-6 py-4 outline-none transition text-white placeholder-slate-400 resize-none"
-          ></textarea>
-        </div>
+          <div class="reveal">
+            <form
+              id="contactForm"
+              class="bg-[color:var(--card)] rounded-3xl p-8 md:p-10 border border-white/10 shadow-xl"
+            >
+              <div class="space-y-6">
+                <div>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Nama lengkap Anda"
+                    required
+                    class="w-full bg-white/5 border border-white/10 focus:border-yellow-400 rounded-2xl px-6 py-4 outline-none transition text-white placeholder-slate-400"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Alamat email Anda"
+                    required
+                    class="w-full bg-white/5 border border-white/10 focus:border-yellow-400 rounded-2xl px-6 py-4 outline-none transition text-white placeholder-slate-400"
+                  />
+                </div>
+                <div>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    placeholder="Tulis pesan Anda di sini..."
+                    required
+                    class="w-full bg-white/5 border border-white/10 focus:border-yellow-400 rounded-3xl px-6 py-4 outline-none transition text-white placeholder-slate-400 resize-none"
+                  ></textarea>
+                </div>
 
-        <button
-          id="submitBtn"
-          type="submit"
-          class="w-full bg-yellow-300 hover:bg-yellow-400 active:scale-95 transition-all text-black font-semibold py-4 rounded-2xl text-lg shadow-lg shadow-yellow-300/30 flex items-center justify-center gap-2"
-        >
-          <span id="btnText">Kirim Pesan</span>
-          <i class="bx bx-send"></i>
-        </button>
-      </div>
-    </form>
-</div>
+                <button
+                  id="submitBtn"
+                  type="submit"
+                  class="w-full bg-yellow-300 hover:bg-yellow-400 active:scale-95 transition-all text-black font-semibold py-4 rounded-2xl text-lg shadow-lg shadow-yellow-300/30 flex items-center justify-center gap-2"
+                >
+                  <span id="btnText">Kirim Pesan</span>
+                  <i class="bx bx-send"></i>
+                </button>
+              </div>
+            </form>
+          </div>
 
           <!-- Contact Info -->
-          <div class="reveal card-hover bg-[color:var(--card)] rounded-3xl p-8 md:p-10 border border-white/10 shadow-xl flex flex-col h-full">
+          <div
+            class="reveal card-hover bg-[color:var(--card)] rounded-3xl p-8 md:p-10 border border-white/10 shadow-xl flex flex-col h-full"
+          >
             <div class="flex-1">
               <h3 class="text-2xl font-semibold mb-2">Muhammad Thufail</h3>
               <p class="text-slate-400 mb-8">
-                Terbuka untuk diskusi, kolaborasi proyek, atau sekadar bertukar pengalaman.
+                Terbuka untuk diskusi, kolaborasi proyek, atau sekadar bertukar
+                pengalaman.
               </p>
 
               <div class="space-y-6">
                 <div class="flex items-start gap-4">
-                  <div class="w-10 h-10 rounded-2xl bg-white/10 flex items-center justify-center text-xl flex-shrink-0">
+                  <div
+                    class="w-10 h-10 rounded-2xl bg-white/10 flex items-center justify-center text-xl flex-shrink-0"
+                  >
                     📱
                   </div>
                   <div>
                     <p class="text-sm text-slate-400">WhatsApp</p>
-                    <a href="https://wa.me/62881012860576" target="_blank" 
-                       class="text-yellow-300 hover:text-yellow-400 transition">+62 851-2671-2473</a>
+                    <a
+                      href="https://wa.me/62881012860576"
+                      target="_blank"
+                      class="text-yellow-300 hover:text-yellow-400 transition"
+                      >+62 851-2671-2473</a
+                    >
                   </div>
                 </div>
 
                 <div class="flex items-start gap-4">
-                  <div class="w-10 h-10 rounded-2xl bg-white/10 flex items-center justify-center text-xl flex-shrink-0">
+                  <div
+                    class="w-10 h-10 rounded-2xl bg-white/10 flex items-center justify-center text-xl flex-shrink-0"
+                  >
                     ✉️
                   </div>
                   <div>
                     <p class="text-sm text-slate-400">Email</p>
-                    <a href="mailto:thufailmuhammad37@gmail.com" 
-                       class="text-yellow-300 hover:text-yellow-400 transition">thufailmuhammad37@gmail.com</a>
+                    <a
+                      href="mailto:thufailmuhammad37@gmail.com"
+                      class="text-yellow-300 hover:text-yellow-400 transition"
+                      >thufailmuhammad37@gmail.com</a
+                    >
                   </div>
                 </div>
 
                 <div class="flex items-start gap-4">
-                  <div class="w-10 h-10 rounded-2xl bg-white/10 flex items-center justify-center text-xl flex-shrink-0">
+                  <div
+                    class="w-10 h-10 rounded-2xl bg-white/10 flex items-center justify-center text-xl flex-shrink-0"
+                  >
                     📍
                   </div>
                   <div>
@@ -625,16 +933,25 @@
             <div class="mt-12 pt-8 border-t border-white/10">
               <p class="text-slate-400 mb-4 text-sm">Temukan saya di</p>
               <div class="flex gap-4">
-                <a href="https://www.instagram.com/stucpel.3028/" target="_blank"
-                   class="w-12 h-12 flex items-center justify-center rounded-2xl border border-white/20 hover:border-pink-400 hover:text-pink-400 transition text-2xl">
+                <a
+                  href="https://www.instagram.com/stucpel.3028/"
+                  target="_blank"
+                  class="w-12 h-12 flex items-center justify-center rounded-2xl border border-white/20 hover:border-pink-400 hover:text-pink-400 transition text-2xl"
+                >
                   <i class="bx bxl-instagram"></i>
                 </a>
-                <a href="https://www.youtube.com/channel/UCfc11GeEFzzChwaf-5ieMzw" target="_blank"
-                   class="w-12 h-12 flex items-center justify-center rounded-2xl border border-white/20 hover:border-red-500 hover:text-red-500 transition text-2xl">
+                <a
+                  href="https://www.youtube.com/channel/UCfc11GeEFzzChwaf-5ieMzw"
+                  target="_blank"
+                  class="w-12 h-12 flex items-center justify-center rounded-2xl border border-white/20 hover:border-red-500 hover:text-red-500 transition text-2xl"
+                >
                   <i class="bx bxl-youtube"></i>
                 </a>
-                <a href="https://github.com/thufailmuhammad37-mta" target="_blank"
-                   class="w-12 h-12 flex items-center justify-center rounded-2xl border border-white/20 hover:border-gray-300 hover:text-gray-300 transition text-2xl">
+                <a
+                  href="https://github.com/thufailmuhammad37-mta"
+                  target="_blank"
+                  class="w-12 h-12 flex items-center justify-center rounded-2xl border border-white/20 hover:border-gray-300 hover:text-gray-300 transition text-2xl"
+                >
                   <i class="bx bxl-github"></i>
                 </a>
               </div>
@@ -642,114 +959,123 @@
           </div>
         </div>
       </section>
-
     </main>
 
     <!-- FOOTER -->
-    <footer class="mt-16 border-t border-white/10 py-10 bg-gradient-to-t from-black to-transparent">
+    <footer
+      class="mt-16 border-t border-white/10 py-10 bg-gradient-to-t from-black to-transparent"
+    >
       <div class="max-w-6xl mx-auto px-6 text-center text-slate-400">
         <p>© 2025 Muhammad Thufail Al-Ghifari — Semua hak dilindungi</p>
       </div>
     </footer>
 
-  <script>
-        // Toggle Mobile Menu
-        function toggleMenu() {
-            const menu = document.getElementById('mobileMenu');
-            const icon = document.getElementById('menuIcon');
-            menu.classList.toggle('hidden');
-            icon.classList.toggle('bx-menu');
-            icon.classList.toggle('bx-x');
-        }
+    <script>
+      // Toggle Mobile Menu
+      function toggleMenu() {
+        const menu = document.getElementById("mobileMenu");
+        const icon = document.getElementById("menuIcon");
+        menu.classList.toggle("hidden");
+        icon.classList.toggle("bx-menu");
+        icon.classList.toggle("bx-x");
+      }
 
-        // Filter Portfolio
-        function filterCategory(category) {
-            const cards = document.querySelectorAll('.portfolio-card');
-            const buttons = document.querySelectorAll('.category-btn');
+      // Filter Portfolio
+      function filterCategory(category) {
+        const cards = document.querySelectorAll(".portfolio-card");
+        const buttons = document.querySelectorAll(".category-btn");
 
-            buttons.forEach(btn => {
-                if ((category === 'all' && btn.textContent.includes('Semua')) || 
-                    btn.getAttribute('onclick').includes(`'${category}'`)) {
-                    btn.classList.add('active', 'bg-white', 'text-black');
-                    btn.classList.remove('border-slate-700');
-                } else {
-                    btn.classList.remove('active', 'bg-white', 'text-black');
-                    btn.classList.add('border-slate-700');
-                }
-            });
+        buttons.forEach((btn) => {
+          if (
+            (category === "all" && btn.textContent.includes("Semua")) ||
+            btn.getAttribute("onclick").includes(`'${category}'`)
+          ) {
+            btn.classList.add("active", "bg-white", "text-black");
+            btn.classList.remove("border-slate-700");
+          } else {
+            btn.classList.remove("active", "bg-white", "text-black");
+            btn.classList.add("border-slate-700");
+          }
+        });
 
-            cards.forEach(card => {
-                if (category === 'all') {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = card.getAttribute('data-category') === category ? 'block' : 'none';
-                }
-            });
-        }
+        cards.forEach((card) => {
+          if (category === "all") {
+            card.style.display = "block";
+          } else {
+            card.style.display =
+              card.getAttribute("data-category") === category
+                ? "block"
+                : "none";
+          }
+        });
+      }
 
-        // Send Email (EmailJS)
-        (function() {
-        emailjs.init("a4l-EnePjKB1ZRK7d"); 
-    })();
+      // Send Email (EmailJS)
+      (function () {
+        emailjs.init("a4l-EnePjKB1ZRK7d");
+      })();
 
-function sendEmail(event) {
-    event.preventDefault();
+      function sendEmail(event) {
+        event.preventDefault();
 
-    const submitBtn = document.getElementById('submitBtn');
-    const btnText = document.getElementById('btnText');
-    const originalText = btnText.textContent;
+        const submitBtn = document.getElementById("submitBtn");
+        const btnText = document.getElementById("btnText");
+        const originalText = btnText.textContent;
 
-    submitBtn.disabled = true;
-    btnText.textContent = 'Mengirim...';
+        submitBtn.disabled = true;
+        btnText.textContent = "Mengirim...";
 
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        message: document.getElementById('message').value,
-    };
+        const formData = {
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          message: document.getElementById("message").value,
+        };
 
-    emailjs.send("m1t2h3u4f5a6i7l8", "template_o3iggru", formData)
-        .then(() => {
+        emailjs
+          .send("m1t2h3u4f5a6i7l8", "template_o3iggru", formData)
+          .then(() => {
             alert("✅ Pesan berhasil dikirim! Terima kasih.");
-            document.getElementById('contactForm').reset();
-        })
-        .catch((error) => {
+            document.getElementById("contactForm").reset();
+          })
+          .catch((error) => {
             console.error("Gagal mengirim:", error);
             alert("❌ Gagal mengirim pesan. Silakan coba lagi.");
-        })
-        .finally(() => {
+          })
+          .finally(() => {
             submitBtn.disabled = false;
             btnText.textContent = originalText;
-        });
-}
+          });
+      }
 
-// Scroll Reveal
-function initScrollReveal() {
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
-            if (entry.isIntersecting) {
+      // Scroll Reveal
+      function initScrollReveal() {
+        const reveals = document.querySelectorAll(".reveal");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry, i) => {
+              if (entry.isIntersecting) {
                 setTimeout(() => {
-                    entry.target.classList.add('active');
+                  entry.target.classList.add("active");
                 }, i * 80);
-            }
-        });
-    }, { threshold: 0.15 });
+              }
+            });
+          },
+          { threshold: 0.15 },
+        );
 
-    reveals.forEach(item => observer.observe(item));
-}
+        reveals.forEach((item) => observer.observe(item));
+      }
 
-// Initialize
-window.addEventListener('load', () => {
-    initScrollReveal();
-    
-    // ← TAMBAHKAN INI
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', sendEmail);
-    }
-});
+      // Initialize
+      window.addEventListener("load", () => {
+        initScrollReveal();
+
+        // ← TAMBAHKAN INI
+        const contactForm = document.getElementById("contactForm");
+        if (contactForm) {
+          contactForm.addEventListener("submit", sendEmail);
+        }
+      });
     </script>
-    
   </body>
 </html>
