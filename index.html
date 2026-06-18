@@ -6,6 +6,12 @@
     <title>Muhammad Thufail - portofolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+    (function() {
+        emailjs.init("a4l-EnePjKB1ZRK7d"); 
+    })();
+   </script>
 
     <style>
         :root {
@@ -684,57 +690,63 @@
         }
 
         // Send Email (EmailJS)
-        function sendEmail(event) {
-            event.preventDefault();
-            const submitBtn = document.getElementById('submitBtn');
-            const btnText = document.getElementById('btnText');
-            const originalText = btnText.textContent;
+function sendEmail(event) {
+    event.preventDefault();
 
-            submitBtn.disabled = true;
-            btnText.textContent = 'Mengirim...';
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = document.getElementById('btnText');
+    const originalText = btnText.textContent;
 
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                message: document.getElementById('message').value,
-                to_email: "thufailmuhammad37@gmail.com"
-            };
+    submitBtn.disabled = true;
+    btnText.textContent = 'Mengirim...';
 
-            emailjs.send("m1t2h3u4f5a6i7l8", "template_o3iggru", formData)
-                .then(() => {
-                    alert("✅ Pesan berhasil dikirim! Terima kasih.");
-                    document.getElementById('contactForm').reset();
-                })
-                .catch((error) => {
-                    console.error("Gagal mengirim:", error);
-                    alert("❌ Gagal mengirim pesan. Silakan coba lagi.");
-                })
-                .finally(() => {
-                    submitBtn.disabled = false;
-                    btnText.textContent = originalText;
-                });
-        }
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value,
+    };
 
-        // Scroll Reveal
-        function initScrollReveal() {
-            const reveals = document.querySelectorAll('.reveal');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry, i) => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            entry.target.classList.add('active');
-                        }, i * 80);
-                    }
-                });
-            }, { threshold: 0.15 });
-
-            reveals.forEach(item => observer.observe(item));
-        }
-
-        // Initialize
-        window.addEventListener('load', () => {
-            initScrollReveal();
+    emailjs.send("m1t2h3u4f5a6i7l8", "template_o3iggru", formData)
+        .then(() => {
+            alert("✅ Pesan berhasil dikirim! Terima kasih.");
+            document.getElementById('contactForm').reset();
+        })
+        .catch((error) => {
+            console.error("Gagal mengirim:", error);
+            alert("❌ Gagal mengirim pesan. Silakan coba lagi.");
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            btnText.textContent = originalText;
         });
+}
+
+// Scroll Reveal
+function initScrollReveal() {
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('active');
+                }, i * 80);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    reveals.forEach(item => observer.observe(item));
+}
+
+// Initialize
+window.addEventListener('load', () => {
+    initScrollReveal();
+    
+    // ← TAMBAHKAN INI
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', sendEmail);
+    }
+});
     </script>
     
   </body>
