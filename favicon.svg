@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <!-- Background -->
+    <circle
+        cx="50"
+        cy="50"
+        r="47"
+        fill="#0f172a"
+        stroke="#facc15"
+        stroke-width="5"
+    />
+
+    <!-- T -->
+    <path
+        d="M20 28
+           H68
+           L58 40
+           H48
+           V73
+           L37 65
+           V40
+           H20
+           Z"
+        fill="#f8fafc"
+    />
+
+    <!-- F -->
+    <path
+        d="M48 28
+           H80
+           L70 40
+           H59
+           V48
+           H73
+           L65 58
+           H59
+           V73
+           L48 65
+           Z"
+        fill="#facc15"
+    />
+</svg>
