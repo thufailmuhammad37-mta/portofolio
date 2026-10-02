@@ -175,7 +175,8 @@ const typingTexts = [
     "Programmer",
     "Front-End Developer",
     "Web Designer",
-    "Creative Developer"
+    "Creative Developer",
+    "pah minta duit buat beli pulsa"
 ];
 
 let textIndex = 0;
