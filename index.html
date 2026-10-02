@@ -538,7 +538,49 @@
 
         #backToTop:hover { box-shadow: 0 12px 30px rgba(250,204,21,.25); }
 
+        /* DARK MODE */
+        /* Gradient text becomes a single yellow color */
+        body:not(.light) .gradient-text {
+            background: none !important;
+            background-image: none !important;
+            -webkit-background-clip: initial !important;
+            background-clip: initial !important;
+            -webkit-text-fill-color: #facc15 !important;
+            color: #facc15 !important;
+            background-size: auto !important;
+            animation: none !important;
+        }
+
         /* LIGHT MODE */
+        /* Gradient text becomes a single dark-yellow color in light mode */
+        body.light .gradient-text {
+            background: none !important;
+            background-image: none !important;
+            -webkit-background-clip: initial !important;
+            background-clip: initial !important;
+            -webkit-text-fill-color: #facc15 !important;
+            color: #facc15 !important;
+            background-size: auto !important;
+            animation: none !important;
+        }
+
+        /* ABOUT - LIGHT MODE */
+        body.light #about .text-yellow-300 {
+            color: #a16207 !important;
+        }
+
+        body.light #about h2 {
+            color: #0f172a !important;
+        }
+
+        body.light #about p.text-slate-400 {
+            color: #334155 !important;
+        }
+
+        body.light #about strong.text-slate-200 {
+            color: #a16207 !important;
+        }
+
         body.light {
             --bg: #f5f7fb;
             --text: #0f172a;
